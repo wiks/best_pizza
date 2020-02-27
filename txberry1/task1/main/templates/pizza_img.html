@@ -1,0 +1,7 @@
+{# 'pizza_img.html' #}
+
+{% load static %}
+
+<img src="{% static 'dagrasso_pliki/' %}{{ pizza.web_id|stringformat:'02d' }}-1.png"
+     class="pizza"
+     onclick="clickedPizzaId({{ pizza.id }})">

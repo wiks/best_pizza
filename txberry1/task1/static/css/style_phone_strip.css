@@ -1,0 +1,102 @@
+/**
+ *
+ */
+
+#phone_full_strip {
+    position: absolute;
+    width:320px;
+    height:22px;
+    top: 65px;
+    background: darkcyan;
+    transition: all 0.5s ease 0.5s;
+    opacity: 0;
+}
+
+div#phone_strip {
+    position: relative;
+    left: 165px;
+    width: 155px;
+    height: 22px;
+}
+div.inline {
+    display: inline-block;
+    height: 100%;
+}
+div.jeden_na_drugim img {
+    position: absolute;
+}
+div#wifi {
+    position: relative;
+    width: 27px;  /* 93 -> 34 */
+}
+div#range1,
+div#range2 {
+    position: relative;
+    width: 20px; /* 60 -> 22 */
+}
+div#bat {
+    position: relative;
+    width: 30px;
+    /* 111 --> 41 */
+}
+div#clock {
+    position: absolute;
+    right: 0px;
+    width: 40px;  /* 177 --> 65 */ 
+}
+
+img.img_wifi,
+img.img_range1,
+img.img_range2
+{
+    height: 18px;
+    visibility: hidden;
+}
+img.img_clock {
+    height: 12px;
+}
+img#img_bat {
+    height: 13px;
+}
+.v_align {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+#username_strip {
+    position: absolute;
+    color: white;
+    max-width: 160px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.edit_area {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ /* unvisited link */
+#phone_full_strip a:link {
+  color: white;
+}
+
+/* visited link */
+#phone_full_strip    a:visited {
+  color: white;
+}
+
+/* mouse over link */
+#phone_full_strip a:hover {
+  color: white;
+}
+
+/* selected link */
+#phone_full_strip a:active {
+  color: white;
+}

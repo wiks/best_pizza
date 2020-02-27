@@ -1,0 +1,36 @@
+{# base_basic_sote.html #}
+
+{% load i18n static %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>{% block title %}xBerry task1 for WikS{% endblock %}</title>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Language" content="pl-pl">
+        <meta name="description" content="QRgo.pl">
+        <meta name="author" content="WikS.eu">
+
+        <meta name="Copyright" content="Copyright © 2019 WikS.eu">
+        <meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
+
+        {#% include 'head_favicon.html' %#}
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        {#% include 'head_fb_twitter.html' %#}
+        {#% include 'head_analytics.html' %#}
+
+        <link href='http://fonts.googleapis.com/css?family=Cabin+Condensed&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+        <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
+
+        {% block base_head_rest %}{% endblock %}
+
+    </head>
+    <body>
+        {% block base_body_rest %}{% endblock %}
+    </body>
+</html>

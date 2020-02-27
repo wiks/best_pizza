@@ -1,0 +1,24 @@
+{# podium.html #}
+
+{% load i18n static %}
+
+
+<div id="podium-box">
+    {% for i in '213'|make_list %}
+
+        <div class="step-container">
+            <div class="flip-card" id="{{ pprefix }}place_{{ i }}">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        {% include 'one_vertical_card.html' %}
+                    </div>
+                </div>
+            </div>
+            <div id="step{{ i }}" class="bg-blue step centerBoth podium-number">
+              {{ i }}
+            </div>
+        </div>
+
+    {% endfor %}
+</div>
+

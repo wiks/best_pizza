@@ -1,0 +1,208 @@
+{# 'results.html' #}
+
+{% extends "base_basic_libs.html" %}
+
+{% load index %}
+{% load i18n static %}
+
+{% block base_basic_style %}
+    <link rel="stylesheet" href="{% static 'css/xberry.css' %}">
+{% endblock %}
+
+{% block base_basic_head_scripts %}
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load("current", {packages:["corechart"]});
+        google.charts.setOnLoadCallback(drawChart_l);
+        google.charts.setOnLoadCallback(drawChart_p);
+
+        /**
+         *
+         */
+        function drawChart_l() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['pizza', 'votes'],
+                {% for pizza in pizzas_votes %}
+                    ['{{ pizza.pizza.name }}',  {{ pizza.votes }}],
+                {% endfor %}
+            ]);
+
+            var options = {
+                title: 'Pizza',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d_l'));
+            chart.draw(data, options);
+        }
+
+        /**
+         *
+         */
+        function drawChart_p() {
+
+            var data = google.visualization.arrayToDataTable([
+                ['topping', 'votes'],
+                {% for topping in toppings_votes %}
+                    ['{{ topping.topping.name }}',  {{ topping.votes }}],
+                {% endfor %}
+            ]);
+
+            var options = {
+                title: 'Topping',
+                is3D: true,
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart_3d_p'));
+            chart.draw(data, options);
+        }
+
+    </script>
+
+{% endblock %}
+
+{% block base_basic_main %}
+
+    <div class="container">
+
+        <div class="row" id="tmp_row">
+
+            <div class="col-md-6">
+
+                <div id="piechart_3d_l" style="width: 100%; height: 400px;"></div>
+
+            </div>
+            <div class="col-md-6">
+
+                <div id="piechart_3d_p" style="width: 100%; height: 400px;"></div>
+
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <h2><span class="badge badge-primary">pizza`s ranking</span></h2>
+
+                <table id="pizzas_votes">
+                    {% for pizza in pizzas_votes %}
+                        <tr id="p{{ pizza.pizza.id }}">
+                            <td>
+                                {% with pizza.pizza as pizza %}
+                                    {% include 'pizza_img.html' %}
+                                {% endwith %}
+                            </td>
+                            <td>
+                                <h2><span class="badge badge-dark">
+                                    {{ pizza.pizza.name }}
+                                </span></h2>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+            <div class="col-md-6">
+
+                <h2><span class="badge badge-primary">stuffing`s ranking</span></h2>
+
+                <table id="toppings_votes">
+                    {% for topping in toppings_votes %}
+                        <tr id="t{{ topping.topping_id }}">
+                            <td>
+                                <h2><span class="badge badge-info">
+                                    {{ topping.topping.name }}
+                                </span></h2>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <br><br> <!-- {# nie ma stopy pod np przyciskami strona kończy się na krawędzi przycisku #} -->
+
+{% endblock %}
+
+{% block base_basic_footer_scripts %}
+
+    <!-- {# do zapisu, odczytu i kasowania cookies #} -->
+    <script src="{% static 'js/cookies_enjoy.js' %}" type="text/javascript"></script>
+    <!-- {# do nadawania i odbioru AJAX, wymaga powyższej cookies_enjoy.js #} -->
+    <script src="{% static 'js/xhttp_enjoy.js' %}" type="text/javascript"></script>
+
+    <script>
+
+        setTimeout(function(){
+            $('#tmp_row').hide("slow");},5000);
+
+        var pizza_order = new Date('{{ pizza_order }}');
+        var topping_order = new Date('{{ topping_order }}');
+
+        var rest_url = "{% url 'vote' %}";
+
+        /** ask about orders and changes in its
+         *
+         */
+        function ask_about_orders() {
+
+            var toSend = new Object();
+            toSend.name = 'changes';
+            send_xhttp_post_request_csrf(rest_url,
+                                         toSend,
+                                         work_with_rest_respond);
+        }
+
+        /** response with dt changed and orders
+         *
+         */
+        function work_with_rest_respond(resp_obj) {
+
+            var npizza_order = new Date(resp_obj.pizza_order);
+            var ntopping_order = new Date(resp_obj.topping_order);
+            if(npizza_order - pizza_order != 0) {
+                pizza_order = npizza_order;
+                var pizzas_votes = $('#pizzas_votes');
+                for(var i=0;i<resp_obj.pizza_list.length;i++) {
+                    pizzas_votes.append(pizzas_votes.find('#p' + resp_obj.pizza_list[i]));
+                }
+                console.info('update pizza');
+            }
+            if(ntopping_order - topping_order != 0) {
+                topping_order = ntopping_order;
+                var toppings_votes = $('#toppings_votes');
+                for(var i=0;i<resp_obj.topping_list.length;i++) {
+                    toppings_votes.append(toppings_votes.find('#t' + resp_obj.topping_list[i]));
+                }
+                console.info('update topping');
+            }
+        }
+
+        /** ask for every 5 sec about order
+         *
+         */
+        function cyclic_ask_about_orders(){
+
+            //console.info('5sec-tic');
+            ask_about_orders();
+            setTimeout(cyclic_ask_about_orders, 5000);
+        }
+
+        cyclic_ask_about_orders();
+
+        /**
+         *
+         */
+        function clickedPizzaId() {}
+
+    </script>
+
+{% endblock %}

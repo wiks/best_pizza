@@ -1,0 +1,62 @@
+1 Margherita
+ciasto, sos pomidorowy, ser, oregano
+2 Capriciosa
+ciasto, sos pomidorowy, ser, szynka, pieczarki, oregano
+3 Parma
+ciasto, sos pomidorowy, ser mozzarella, szynka dojrzewająca, bazylia świeża, oregano
+4 Campione
+ciasto, sos pomidorowy, ser, szynka, kabanosy, boczek wędzony, salami, oregano
+5 Decoro
+ciasto, sos pomidorowy, ser, szynka, pieczarki, papryka konserwowa, czosnek, oregano
+6 Pepe Roso
+ciasto, sos pomidorowy, ser, salami, papryka konserwowa, oregano
+7 Napoletana
+ciasto, sos pomidorowy, ser, salami, oliwki zielone, papryczki jalapenos, oregano
+8 Piacere
+ciasto, ser, sos pomidorowy, salami, boczek wędzony, cebula biała, kukurydza, oregano
+9 Roma
+ciasto, sos pomidorowy, ser, salami, kabanosy, papryka konserwowa, oregano
+10 Polska
+ciasto, sos pomidorowy, ser, szynka, kiełbasa, kabanosy, cebula biała, papryka świeża, oregano
+11 Inverno
+ciasto, śmietanka, ser, boczek wędzony, cebula czerwona, oregano
+12 Semplicita
+ciasto, sos pomidorowy, ser, szynka, oregano
+13 Mafioso
+ciasto, sos pomidorowy, ser, salami, czosnek, papryczki jalapenos, sos chilli Louisiana, oregano
+14 Wiejska
+ciasto, sos pomidorowy, ser, kiełbasa, ogórki konserwowe, cebula biała, czosnek, oregano
+15 Sparare
+ciasto, sos pomidorowy, ser, boczek wędzony, pieczarki, cebula biała, pomidory koktajlowe, czosnek, oregano
+16 Pepperoni
+ciasto, sos pomidorowy, ser, salami pepperoni, oregano
+17 Havai
+ciasto, sos pomidorowy, ser, szynka, ananasy, oregano
+18 Quattro Stagioni
+ciasto, sos pomidorowy, ser, karczochy, szynka, oliwki czarne, pieczarki, oregano
+19 Da Grasso
+ciasto, sos pomidorowy, ser, salami pepperoni, oliwki czarne, rukola świeża, oregano
+20 Formicetta
+ciasto, sos pomidorowy, ser, boczek wędzony, ser pleśniowy, cebula czerwona, oregano
+21 Pepe Bianco
+ciasto, śmietanka, ser, kebab drobiowy, boczek wędzony, papryka świeża, papryczki jalapenos, oregano
+22 Pancetta
+ciasto, sos pomidorowy, ser, boczek wędzony, ser mozzarella, pomidory koktajlowe, oregano
+23 Basilico
+ciasto, sos pomidorowy, ser mozzarella,pomidory koktajlowe, bazylia świeża, oregano
+24 Viola
+ciasto, sos pomidorowy, ser, ser mozzarella, pomidory suszone, oliwki czarne, rukola świeża, oregano
+25 Cztery Sery
+ciasto, sos pomidorowy, ser, ser mozzarella, ser sałatkowy, ser pleśniowy, oregano
+26 Marinara
+ciasto, sos pomidorowy, czosnek, bazylia świeża
+27 Green Day
+ciasto, śmietanka, ser, szpinak, brokuły, cukinia, ser pleśniowy, oregano
+41 Vegano
+ciasto, sos pomidorowy + 3 wegańskie składniki
+28 Scampi Tuna
+ciasto, śmietanka, ser, krewetki, tuńczyk, ananas, oregano
+29 Corso
+ciasto, śmietanka, ser, szynka, tuńczyk, oregano
+30 Camareo
+ciasto, sos pomidorowy, ser, krewetki, szynka dojrzewająca, rukola świeża, oregano

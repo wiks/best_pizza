@@ -1,0 +1,120 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pl">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Creation &#8212; XBerry-task1 0.99 - dokumentacja</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.99',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="index" title="Indeks" href="genindex.html" />
+    <link rel="search" title="Szukaj" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="creation">
+<h1>Creation<a class="headerlink" href="#creation" title="Stały odnośnik do tego nagłówka">¶</a></h1>
+<ol class="arabic simple">
+<li>Software:</li>
+</ol>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">django</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">asgiref</span><span class="o">-</span><span class="mf">3.2</span><span class="o">.</span><span class="mi">3</span> <span class="n">django</span><span class="o">-</span><span class="mf">3.0</span><span class="o">.</span><span class="mi">3</span> <span class="n">pytz</span><span class="o">-</span><span class="mf">2019.3</span> <span class="n">sqlparse</span><span class="o">-</span><span class="mf">0.3</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">djangorestframework</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">djangorestframework</span><span class="o">-</span><span class="mf">3.11</span><span class="o">.</span><span class="mi">0</span>
+
+<span class="n">django</span><span class="o">-</span><span class="n">admin</span> <span class="n">startproject</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">mysqlclient</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">mysqlclient</span><span class="o">-</span><span class="mf">1.4</span><span class="o">.</span><span class="mi">6</span>
+
+<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">migrate</span>
+<span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">createsuperuser</span>
+
+<span class="n">sudo</span> <span class="n">apt</span>  <span class="n">install</span> <span class="n">httpie</span>
+<span class="c1"># or sudo apt install curl</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li>Pizzas</li>
+</ol>
+<p>From webpage: <a class="reference external" href="https://www.dagrasso.pl/menu">https://www.dagrasso.pl/menu</a>
+download page and images, and manually pick up IDs, names and stuffing to text file <strong>from_dagrasso.txt</strong>.
+Every pizza starts with <strong>&lt;p class=”product-desc”&gt;</strong>.</p>
+<p>Next convert file into objects with:</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">manage</span><span class="o">.</span><span class="n">py</span> <span class="n">shell</span>
+<span class="kn">from</span> <span class="nn">main.utils</span> <span class="k">import</span> <span class="n">create_from_dagrasso</span>
+<span class="n">create_from_dagrasso</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>image <strong>pizza-formicetta.png</strong> –&gt; 20-1.png</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Szybkie wyszukiwanie</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Szukaj" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, WikS.eu.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.7</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.8</a>
+      
+      |
+      <a href="_sources/creation.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
